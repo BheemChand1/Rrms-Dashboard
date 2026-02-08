@@ -10,13 +10,13 @@ const performanceData = [
 
 const AveragePerformance = () => {
   return (
-    <DashboardCard title="Average Performance - Fortnight">
+    <DashboardCard title="Avg Performance - Fortnight">
       <table className="w-full">
         <tbody>
           {performanceData.map((item, index) => (
-            <tr key={index} className="border-b border-border last:border-0">
-              <td className="py-2 text-sm text-card-foreground">{item.label}</td>
-              <td className="py-2 text-sm text-right font-medium text-card-foreground">
+            <tr key={index} className="border-b border-border/50 last:border-0">
+              <td className="py-1 text-xs text-card-foreground">{item.label}</td>
+              <td className="py-1 text-xs text-right font-semibold text-card-foreground">
                 {item.value}
               </td>
             </tr>

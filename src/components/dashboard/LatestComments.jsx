@@ -8,23 +8,20 @@ const comments = [
 
 const LatestComments = () => {
   return (
-    <DashboardCard title="Latest Comments" badge="Today's Comments">
-      <div className="space-y-4">
+    <DashboardCard title="Latest Comments" badge="Today">
+      <div className="space-y-2">
         {comments.map((comment) => (
-          <div key={comment.id} className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground font-medium text-sm">
+          <div key={comment.id} className="flex items-center gap-2">
+            <div className="w-7 h-7 rounded-full bg-muted flex items-center justify-center text-muted-foreground font-medium text-[10px]">
               {comment.initials}
             </div>
-            <div className="flex-1">
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-primary font-medium text-sm">{comment.name}</span>
-                <span className="text-muted-foreground text-sm">SCORE: {comment.score}</span>
-                {comment.note && (
-                  <span className="text-muted-foreground text-sm">{comment.note}</span>
-                )}
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-primary font-medium text-xs truncate">{comment.name}</span>
+                <span className="text-muted-foreground text-[10px]">({comment.score})</span>
               </div>
             </div>
-            <span className="bg-primary text-primary-foreground text-xs px-2 py-1 rounded">
+            <span className="bg-primary text-primary-foreground text-[9px] px-1.5 py-0.5 rounded">
               {comment.location}
             </span>
           </div>
