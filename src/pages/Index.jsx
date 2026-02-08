@@ -18,6 +18,7 @@ import AveragePerformance from "../components/dashboard/AveragePerformance.jsx";
 import ComplaintStatusChart from "../components/dashboard/ComplaintStatusChart.jsx";
 import OccupancyChart from "../components/dashboard/OccupancyChart.jsx";
 import WeeklyFeedbackChart from "../components/dashboard/WeeklyFeedbackChart.jsx";
+import LiveNotifications from "../components/dashboard/LiveNotifications.jsx";
 
 const statCards = [
   {
@@ -140,6 +141,9 @@ const Index = () => {
           </footer>
         </main>
       </div>
+
+      {/* Live Notifications */}
+      <LiveNotifications />
     </div>
   );
 };
