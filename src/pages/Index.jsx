@@ -9,15 +9,15 @@ import {
   MessageSquare, 
   Bell 
 } from "lucide-react";
-import Header from "@/components/dashboard/Header";
-import Sidebar from "@/components/dashboard/Sidebar";
-import StatCard from "@/components/dashboard/StatCard";
-import GrossHappinessIndex from "@/components/dashboard/GrossHappinessIndex";
-import LatestComments from "@/components/dashboard/LatestComments";
-import AveragePerformance from "@/components/dashboard/AveragePerformance";
-import ComplaintStatusChart from "@/components/dashboard/ComplaintStatusChart";
-import OccupancyChart from "@/components/dashboard/OccupancyChart";
-import WeeklyFeedbackChart from "@/components/dashboard/WeeklyFeedbackChart";
+import Header from "../components/dashboard/Header.jsx";
+import Sidebar from "../components/dashboard/Sidebar.jsx";
+import StatCard from "../components/dashboard/StatCard.jsx";
+import GrossHappinessIndex from "../components/dashboard/GrossHappinessIndex.jsx";
+import LatestComments from "../components/dashboard/LatestComments.jsx";
+import AveragePerformance from "../components/dashboard/AveragePerformance.jsx";
+import ComplaintStatusChart from "../components/dashboard/ComplaintStatusChart.jsx";
+import OccupancyChart from "../components/dashboard/OccupancyChart.jsx";
+import WeeklyFeedbackChart from "../components/dashboard/WeeklyFeedbackChart.jsx";
 
 const statCards = [
   {

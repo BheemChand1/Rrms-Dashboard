@@ -1,18 +1,15 @@
 import { Bell, Menu } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const Header = ({ onMenuClick }) => {
   return (
     <header className="bg-gradient-to-r from-primary to-accent h-14 flex items-center justify-between px-4 text-primary-foreground shadow-md">
       <div className="flex items-center gap-3">
-        <Button
-          variant="ghost"
-          size="icon"
-          className="lg:hidden text-primary-foreground hover:bg-white/10"
+        <button
+          className="lg:hidden p-2 rounded-md text-primary-foreground hover:bg-white/10"
           onClick={onMenuClick}
         >
           <Menu className="h-5 w-5" />
-        </Button>
+        </button>
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
             <span className="text-xs font-bold">✓</span>
@@ -39,13 +36,9 @@ const Header = ({ onMenuClick }) => {
         <a href="#" className="hidden sm:block text-sm hover:underline px-2 py-1">
           Help
         </a>
-        <Button 
-          variant="destructive" 
-          size="sm"
-          className="text-xs font-medium"
-        >
+        <button className="bg-destructive text-destructive-foreground px-3 py-1.5 rounded-md text-xs font-medium hover:bg-destructive/90">
           Sign Out
-        </Button>
+        </button>
       </nav>
     </header>
   );
