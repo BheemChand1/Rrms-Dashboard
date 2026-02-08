@@ -14,6 +14,7 @@ import {
   ChevronRight,
   X
 } from "lucide-react";
+import railwayLogo from "@/assets/indian-railway-logo.png";
 
 const menuItems = [
   { icon: LayoutDashboard, label: "Dashboard", active: true },
@@ -54,16 +55,11 @@ const Sidebar = ({ isOpen, onClose }) => {
 
         <div className="p-4 flex flex-col items-center border-b border-sidebar-border">
           <div className="w-24 h-24 rounded-full bg-card flex items-center justify-center mb-3 overflow-hidden">
-            <div className="w-20 h-20 rounded-full border-4 border-stat-darkBlue flex items-center justify-center">
-              <div className="text-center">
-                <div className="text-[6px] text-stat-darkBlue font-bold leading-tight">INDIAN</div>
-                <div className="text-xs text-stat-darkBlue font-bold">🚂</div>
-                <div className="text-[6px] text-stat-darkBlue font-bold leading-tight">RAILWAYS</div>
-              </div>
-            </div>
-          </div>
-          <div className="w-12 h-12 bg-sidebar-accent rounded-full flex items-center justify-center mb-2">
-            <div className="w-8 h-8 rounded-full border-2 border-sidebar-foreground/50" />
+            <img 
+              src={railwayLogo} 
+              alt="Indian Railways Logo" 
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
 
