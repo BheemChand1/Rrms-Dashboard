@@ -1,9 +1,16 @@
 import { useState } from "react";
 import { Menu } from "lucide-react";
 import NotificationDropdown from "./NotificationDropdown.jsx";
+import NewsUpdatesDropdown from "./NewsUpdatesDropdown.jsx";
 
 const Header = ({ onMenuClick }) => {
   const [notificationOpen, setNotificationOpen] = useState(false);
+  const [newsOpen, setNewsOpen] = useState(false);
+
+  const closeAll = () => {
+    setNotificationOpen(false);
+    setNewsOpen(false);
+  };
 
   return (
     <header className="bg-gradient-to-r from-primary to-accent h-14 flex items-center justify-between px-4 text-primary-foreground shadow-md">
@@ -31,9 +38,20 @@ const Header = ({ onMenuClick }) => {
         <a href="#" className="hidden sm:block text-sm hover:underline px-2 py-1">
           IOS Scanner
         </a>
+        <NewsUpdatesDropdown
+          isOpen={newsOpen}
+          onToggle={() => {
+            setNewsOpen(!newsOpen);
+            setNotificationOpen(false);
+          }}
+          onClose={() => setNewsOpen(false)}
+        />
         <NotificationDropdown
           isOpen={notificationOpen}
-          onToggle={() => setNotificationOpen(!notificationOpen)}
+          onToggle={() => {
+            setNotificationOpen(!notificationOpen);
+            setNewsOpen(false);
+          }}
           onClose={() => setNotificationOpen(false)}
         />
         <a href="#" className="hidden sm:block text-sm hover:underline px-2 py-1">
