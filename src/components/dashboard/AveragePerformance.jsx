@@ -1,4 +1,4 @@
-import DashboardCard from "./DashboardCard";
+import DashboardCard from "./DashboardCard.jsx";
 
 const performanceData = [
   { label: "Occupancy", value: 69.47 },

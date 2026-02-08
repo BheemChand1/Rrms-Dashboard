@@ -1,4 +1,4 @@
-import DashboardCard from "./DashboardCard";
+import DashboardCard from "./DashboardCard.jsx";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from "recharts";
 
 const data = [

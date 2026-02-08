@@ -1,4 +1,4 @@
-import DashboardCard from "./DashboardCard";
+import DashboardCard from "./DashboardCard.jsx";
 
 const GrossHappinessIndex = () => {
   const percentage = 79.5;

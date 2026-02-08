@@ -14,7 +14,6 @@ import {
   ChevronRight,
   X
 } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 const menuItems = [
   { icon: LayoutDashboard, label: "Dashboard", active: true },
@@ -42,13 +41,12 @@ const Sidebar = ({ isOpen, onClose }) => {
       )}
       
       <aside 
-        className={cn(
-          "fixed lg:static inset-y-0 left-0 z-50 w-64 bg-sidebar transform transition-transform duration-300 ease-in-out flex flex-col",
+        className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-sidebar transform transition-transform duration-300 ease-in-out flex flex-col ${
           isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
-        )}
+        }`}
       >
         <button 
-          className="lg:hidden absolute top-4 right-4 text-sidebar-foreground hover:text-sidebar-primary-foreground"
+          className="lg:hidden absolute top-4 right-4 text-sidebar-foreground hover:text-white"
           onClick={onClose}
         >
           <X className="h-5 w-5" />
@@ -80,12 +78,11 @@ const Sidebar = ({ isOpen, onClose }) => {
             <a
               key={index}
               href="#"
-              className={cn(
-                "flex items-center justify-between px-4 py-3 text-sm transition-colors",
+              className={`flex items-center justify-between px-4 py-3 text-sm transition-colors ${
                 item.active 
-                  ? "bg-sidebar-accent text-sidebar-primary-foreground" 
-                  : "text-sidebar-foreground hover:bg-sidebar-accent/50 hover:text-sidebar-primary-foreground"
-              )}
+                  ? "bg-sidebar-accent text-white" 
+                  : "text-sidebar-foreground hover:bg-sidebar-accent/50 hover:text-white"
+              }`}
             >
               <div className="flex items-center gap-3">
                 <item.icon className="h-4 w-4" />

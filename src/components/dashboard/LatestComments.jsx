@@ -1,4 +1,4 @@
-import DashboardCard from "./DashboardCard";
+import DashboardCard from "./DashboardCard.jsx";
 
 const comments = [
   { id: 1, name: "DUSHYANT UPADHYAY", score: 10, location: "Ajmer", initials: "DU" },
