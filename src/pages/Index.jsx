@@ -113,18 +113,9 @@ const Index = () => {
         <Header onMenuClick={() => setSidebarOpen(true)} />
         
         <main className="flex-1 p-5 lg:p-8 overflow-auto">
-          {/* Welcome Section */}
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <h2 className="text-xl font-bold text-foreground">Welcome back! 👋</h2>
-              <p className="text-sm text-muted-foreground mt-0.5">
-                Daily report for <span className="font-semibold text-primary">{currentDate}</span>
-              </p>
-            </div>
-            <div className="hidden sm:flex items-center gap-2 bg-card rounded-xl px-4 py-2 shadow-sm border border-border/50">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-xs text-muted-foreground">System Online</span>
-            </div>
+          <div className="flex items-center gap-2 mb-5 text-muted-foreground">
+            <span className="text-sm">📋 Daily report for</span>
+            <span className="text-sm font-semibold text-foreground">{currentDate}</span>
           </div>
 
           {/* Stat Cards */}
