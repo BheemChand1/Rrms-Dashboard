@@ -67,7 +67,7 @@ const Sidebar = ({ isOpen, onClose }) => {
           </h2>
         </div>
 
-        <nav className="flex-1 overflow-y-auto py-2">
+        <nav className="flex-1 overflow-y-auto py-2 scrollbar-thin scrollbar-thumb-sidebar-accent scrollbar-track-sidebar-border hover:scrollbar-thumb-sidebar-primary" style={{ scrollbarWidth: 'thin', scrollbarColor: 'hsl(var(--sidebar-accent)) hsl(var(--sidebar-border))' }}>
           {menuItems.map((item, index) => (
             <a
               key={index}
