@@ -88,46 +88,46 @@ const LiveNotifications = () => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2 pointer-events-none">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3 pointer-events-none">
       {toasts.map((toast) => {
         const Icon = getIcon(toast.type);
         return (
           <div
             key={toast.uniqueId}
-            className="pointer-events-auto bg-card rounded-lg shadow-lg border border-border p-3 w-72 animate-in slide-in-from-right-full fade-in duration-300"
+            className="pointer-events-auto bg-card/95 backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/20 border border-border/50 p-4 w-80 animate-in slide-in-from-right-full fade-in duration-300"
           >
             <div className="flex items-start gap-3">
               {/* Icon */}
-              <div className={`p-2 rounded-lg ${getIconBg(toast.type)} flex-shrink-0`}>
+              <div className={`p-2.5 rounded-xl ${getIconBg(toast.type)} flex-shrink-0 shadow-lg`}>
                 <Icon className="h-4 w-4 text-white" />
               </div>
 
               {/* Content */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between gap-2">
-                  <h4 className="text-xs font-semibold text-card-foreground">
+                  <h4 className="text-sm font-semibold text-card-foreground">
                     {toast.title}
                   </h4>
                   <button
                     onClick={() => dismissToast(toast.uniqueId)}
-                    className="p-0.5 hover:bg-muted rounded transition-colors"
+                    className="p-1 hover:bg-muted rounded-lg transition-colors"
                   >
-                    <X className="h-3 w-3 text-muted-foreground" />
+                    <X className="h-3.5 w-3.5 text-muted-foreground" />
                   </button>
                 </div>
-                <p className="text-xs text-muted-foreground mt-0.5">
+                <p className="text-xs text-muted-foreground mt-1">
                   {toast.message}
                 </p>
-                <span className="text-[10px] text-primary font-medium mt-1 block">
+                <span className="text-[10px] text-primary font-semibold mt-1.5 block">
                   {toast.time}
                 </span>
               </div>
             </div>
 
             {/* Progress bar */}
-            <div className="mt-2 h-0.5 bg-muted rounded-full overflow-hidden">
+            <div className="mt-3 h-1 bg-muted rounded-full overflow-hidden">
               <div 
-                className="h-full bg-primary animate-shrink-width"
+                className="h-full bg-gradient-to-r from-primary to-accent animate-shrink-width rounded-full"
                 style={{ animationDuration: '5s' }}
               />
             </div>

@@ -106,38 +106,54 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-screen flex w-full bg-background">
+    <div className="min-h-screen flex w-full bg-gradient-to-br from-background via-background to-muted/30">
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
       
       <div className="flex-1 flex flex-col min-w-0">
         <Header onMenuClick={() => setSidebarOpen(true)} />
         
-        <main className="flex-1 p-4 lg:p-6 overflow-auto">
-          <div className="flex items-center gap-2 mb-4 text-muted-foreground">
-            <span className="text-sm">📋 Daily report for</span>
-            <span className="text-sm font-medium text-card-foreground">{currentDate}</span>
+        <main className="flex-1 p-5 lg:p-8 overflow-auto">
+          {/* Welcome Section */}
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-xl font-bold text-foreground">Welcome back! 👋</h2>
+              <p className="text-sm text-muted-foreground mt-0.5">
+                Daily report for <span className="font-semibold text-primary">{currentDate}</span>
+              </p>
+            </div>
+            <div className="hidden sm:flex items-center gap-2 bg-card rounded-xl px-4 py-2 shadow-sm border border-border/50">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+              <span className="text-xs text-muted-foreground">System Online</span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          {/* Stat Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
             {statCards.map((card, index) => (
               <StatCard key={index} {...card} />
             ))}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
+          {/* Middle Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-8">
             <GrossHappinessIndex />
             <LatestComments />
             <AveragePerformance />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          {/* Charts Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
             <ComplaintStatusChart />
             <OccupancyChart />
             <WeeklyFeedbackChart />
           </div>
 
-          <footer className="mt-8 pt-4 border-t border-border text-center text-xs text-muted-foreground">
-            Copyright 2016 | All Rights Reserved | Designed & Developed by beatleanalytics.com | Terms
+          {/* Footer */}
+          <footer className="mt-10 pt-6 border-t border-border/50 text-center">
+            <p className="text-xs text-muted-foreground">
+              © 2026 Reception Manager • Designed & Developed by{" "}
+              <a href="#" className="text-primary hover:underline font-medium">beatleanalytics.com</a>
+            </p>
           </footer>
         </main>
       </div>
