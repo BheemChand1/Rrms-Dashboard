@@ -53,11 +53,11 @@ const Sidebar = ({ isOpen, onClose }) => {
           <X className="h-5 w-5" />
         </button>
 
-        <div className="p-2 border-b border-sidebar-border">
+        <div className="p-3 flex justify-center border-b border-sidebar-border">
           <img 
             src={railwayLogo} 
             alt="Indian Railways Logo" 
-            className="w-full h-auto object-contain"
+            className="w-20 h-20 object-contain"
           />
         </div>
 
