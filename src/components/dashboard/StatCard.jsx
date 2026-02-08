@@ -1,19 +1,19 @@
 const colorClasses = {
-  blue: "bg-stat-blue",
-  yellow: "bg-stat-yellow",
-  orange: "bg-stat-orange",
-  red: "bg-stat-red",
-  purple: "bg-stat-purple",
-  darkBlue: "bg-stat-darkBlue",
-  green: "bg-stat-green",
+  blue: "icon-gradient-blue",
+  yellow: "icon-gradient-yellow",
+  orange: "icon-gradient-orange",
+  red: "icon-gradient-red",
+  purple: "icon-gradient-purple",
+  darkBlue: "icon-gradient-darkBlue",
+  green: "icon-gradient-green",
 };
 
 const StatCard = ({ icon: Icon, iconColor, title, stats }) => {
   return (
-    <div className="bg-card rounded-lg shadow-sm border border-border p-4 hover:shadow-md transition-shadow">
+    <div className="group bg-card rounded-2xl shadow-md shadow-black/5 border border-border/50 p-4 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
       <div className="flex items-center gap-3">
         {/* Icon Section */}
-        <div className={`p-2.5 rounded-lg ${colorClasses[iconColor]} flex-shrink-0`}>
+        <div className={`p-3 rounded-xl ${colorClasses[iconColor]} flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
           <Icon className="h-6 w-6 text-white" />
         </div>
         
@@ -21,7 +21,7 @@ const StatCard = ({ icon: Icon, iconColor, title, stats }) => {
         <div className="flex-1 min-w-0">
           {/* Centered Title */}
           <div className="flex justify-center mb-2">
-            <h3 className="text-[10px] font-medium text-muted-foreground uppercase tracking-wider">
+            <h3 className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest">
               {title}
             </h3>
           </div>
@@ -33,7 +33,7 @@ const StatCard = ({ icon: Icon, iconColor, title, stats }) => {
                 <span className="text-[9px] text-muted-foreground uppercase tracking-wide block">
                   {stats[0].label}
                 </span>
-                <span className="text-lg font-bold text-card-foreground leading-tight">
+                <span className="text-xl font-bold text-card-foreground leading-tight">
                   {stats[0].value}
                 </span>
               </div>
@@ -45,20 +45,20 @@ const StatCard = ({ icon: Icon, iconColor, title, stats }) => {
                 <span className="text-[9px] text-muted-foreground uppercase tracking-wide block">
                   {stats[0].label}
                 </span>
-                <span className="text-lg font-bold text-card-foreground leading-tight">
+                <span className="text-xl font-bold text-card-foreground leading-tight">
                   {stats[0].value}
                 </span>
               </div>
               
               {/* Vertical Divider */}
-              <div className="w-px h-6 bg-border mx-2" />
+              <div className="w-px h-8 bg-gradient-to-b from-transparent via-border to-transparent mx-2" />
               
               {/* Right Value */}
               <div className="text-right">
                 <span className="text-[9px] text-muted-foreground uppercase tracking-wide block">
                   {stats[1].label}
                 </span>
-                <span className="text-lg font-bold text-card-foreground leading-tight">
+                <span className="text-xl font-bold text-card-foreground leading-tight">
                   {stats[1].value}
                 </span>
               </div>

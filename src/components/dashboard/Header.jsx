@@ -13,29 +13,32 @@ const Header = ({ onMenuClick }) => {
   };
 
   return (
-    <header className="bg-gradient-to-r from-primary to-accent h-14 flex items-center justify-between px-4 text-primary-foreground shadow-md">
-      <div className="flex items-center gap-3">
+    <header className="bg-gradient-to-r from-primary via-primary to-accent h-16 flex items-center justify-between px-6 text-primary-foreground shadow-lg shadow-primary/20">
+      <div className="flex items-center gap-4">
         <button
-          className="lg:hidden p-2 rounded-md text-primary-foreground hover:bg-white/10"
+          className="lg:hidden p-2.5 rounded-xl text-primary-foreground hover:bg-white/15 transition-colors"
           onClick={onMenuClick}
         >
           <Menu className="h-5 w-5" />
         </button>
-        <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
-            <span className="text-xs font-bold">✓</span>
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-inner">
+            <span className="text-sm font-bold">✓</span>
           </div>
-          <h1 className="text-lg font-semibold tracking-wide">
-            DASHBOARD - AJMER
-          </h1>
+          <div>
+            <h1 className="text-lg font-bold tracking-wide">
+              DASHBOARD
+            </h1>
+            <p className="text-[10px] text-white/70 -mt-0.5">AJMER DIVISION</p>
+          </div>
         </div>
       </div>
       
-      <nav className="flex items-center gap-1 sm:gap-4">
-        <a href="#" className="hidden sm:block text-sm hover:underline px-2 py-1">
+      <nav className="flex items-center gap-2 sm:gap-3">
+        <a href="#" className="hidden sm:flex items-center gap-1.5 text-sm hover:bg-white/15 px-3 py-2 rounded-xl transition-all duration-200">
           Directory
         </a>
-        <a href="#" className="hidden sm:block text-sm hover:underline px-2 py-1">
+        <a href="#" className="hidden sm:flex items-center gap-1.5 text-sm hover:bg-white/15 px-3 py-2 rounded-xl transition-all duration-200">
           IOS Scanner
         </a>
         <NewsUpdatesDropdown
@@ -54,10 +57,10 @@ const Header = ({ onMenuClick }) => {
           }}
           onClose={() => setNotificationOpen(false)}
         />
-        <a href="#" className="hidden sm:block text-sm hover:underline px-2 py-1">
+        <a href="#" className="hidden sm:flex items-center gap-1.5 text-sm hover:bg-white/15 px-3 py-2 rounded-xl transition-all duration-200">
           Help
         </a>
-        <button className="bg-destructive text-destructive-foreground px-3 py-1.5 rounded-md text-xs font-medium hover:bg-destructive/90">
+        <button className="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-xl text-xs font-semibold hover:bg-white/30 transition-all duration-200 shadow-lg">
           Sign Out
         </button>
       </nav>
