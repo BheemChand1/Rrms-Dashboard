@@ -13,21 +13,22 @@ const data = [
 
 const ComplaintStatusChart = () => {
   return (
-    <DashboardCard title="Current Complaint Status">
-      <div className="h-48">
+    <DashboardCard title="Complaint Status">
+      <div className="h-32">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={data}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis 
               dataKey="day" 
-              tick={{ fontSize: 12, fill: "hsl(var(--muted-foreground))" }}
+              tick={{ fontSize: 9, fill: "hsl(var(--muted-foreground))" }}
               axisLine={{ stroke: "hsl(var(--border))" }}
             />
             <YAxis 
               domain={[-1, 1]} 
-              ticks={[-1, -0.5, 0, 0.5, 1]}
-              tick={{ fontSize: 12, fill: "hsl(var(--muted-foreground))" }}
+              ticks={[-1, 0, 1]}
+              tick={{ fontSize: 9, fill: "hsl(var(--muted-foreground))" }}
               axisLine={{ stroke: "hsl(var(--border))" }}
+              width={25}
             />
             <Line 
               type="monotone" 
