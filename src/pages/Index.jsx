@@ -96,6 +96,7 @@ const statCards = [
 
 const Index = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const currentDate = new Date().toLocaleString('en-GB', {
     day: '2-digit',
     month: '2-digit',
@@ -107,10 +108,21 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex w-full bg-background">
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <Sidebar 
+        isOpen={sidebarOpen} 
+        onClose={() => setSidebarOpen(false)} 
+        isCollapsed={sidebarCollapsed}
+        onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
+      />
+      
+      {/* Spacer for fixed sidebar */}
+      <div className={`hidden lg:block flex-shrink-0 transition-all duration-300 ${sidebarCollapsed ? "w-16" : "w-56"}`} />
       
       <div className="flex-1 flex flex-col min-w-0">
-        <Header onMenuClick={() => setSidebarOpen(true)} />
+        <Header onMenuClick={() => setSidebarOpen(true)} sidebarCollapsed={sidebarCollapsed} />
+        
+        {/* Spacer for fixed header */}
+        <div className="h-12 flex-shrink-0" />
         
         <main className="flex-1 p-3 lg:p-4 overflow-auto">
           <div className="flex items-center gap-2 mb-3 text-muted-foreground">

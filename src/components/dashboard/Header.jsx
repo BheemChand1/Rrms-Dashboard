@@ -3,7 +3,7 @@ import { Menu } from "lucide-react";
 import NotificationDropdown from "./NotificationDropdown.jsx";
 import NewsUpdatesDropdown from "./NewsUpdatesDropdown.jsx";
 
-const Header = ({ onMenuClick }) => {
+const Header = ({ onMenuClick, sidebarCollapsed }) => {
   const [notificationOpen, setNotificationOpen] = useState(false);
   const [newsOpen, setNewsOpen] = useState(false);
 
@@ -13,7 +13,7 @@ const Header = ({ onMenuClick }) => {
   };
 
   return (
-    <header className="bg-gradient-to-r from-primary via-primary to-accent h-12 flex items-center justify-between px-4 text-primary-foreground shadow-md">
+    <header className={`fixed top-0 right-0 z-40 bg-gradient-to-r from-primary via-primary to-accent h-12 flex items-center justify-between px-4 text-primary-foreground shadow-md transition-all duration-300 ${sidebarCollapsed ? "left-16" : "left-0 lg:left-56"}`}>
       <div className="flex items-center gap-3">
         <button
           className="lg:hidden p-2 rounded-lg text-primary-foreground hover:bg-white/15 transition-colors"
