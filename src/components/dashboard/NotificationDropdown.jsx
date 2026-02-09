@@ -80,12 +80,12 @@ const NotificationDropdown = ({ isOpen, onClose, onToggle }) => {
         <>
           {/* Backdrop */}
           <div
-            className="fixed inset-0 z-40"
+            className="fixed inset-0 z-40 bg-black/20"
             onClick={onClose}
           />
 
           {/* Dropdown */}
-          <div className="absolute right-0 top-full mt-2 w-80 sm:w-96 bg-card rounded-xl shadow-xl border border-border z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="fixed left-2 right-2 top-14 sm:absolute sm:left-auto sm:right-0 sm:top-full sm:mt-2 sm:w-96 bg-card rounded-xl shadow-xl border border-border z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 bg-muted/50 border-b border-border">
               <div className="flex items-center gap-2">
