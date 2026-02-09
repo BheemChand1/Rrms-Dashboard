@@ -1,22 +1,22 @@
 import DashboardCard from "./DashboardCard.jsx";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from "recharts";
 
 const data = [
-  { day: "Sun", value: 0 },
-  { day: "Mon", value: 0 },
-  { day: "Tue", value: 0 },
-  { day: "Wed", value: 0 },
-  { day: "Thu", value: 0 },
-  { day: "Fri", value: 0 },
-  { day: "Sat", value: 0 },
+  { day: "Sun", value: 8 },
+  { day: "Mon", value: 12 },
+  { day: "Tue", value: 6 },
+  { day: "Wed", value: 10 },
+  { day: "Thu", value: 15 },
+  { day: "Fri", value: 9 },
+  { day: "Sat", value: 4 },
 ];
 
 const WeeklyFeedbackChart = () => {
   return (
     <DashboardCard title="Weekly Feedback">
-      <div className="h-32">
+      <div className="h-40">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data}>
+          <BarChart data={data}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
             <XAxis 
               dataKey="day" 
@@ -24,20 +24,17 @@ const WeeklyFeedbackChart = () => {
               axisLine={{ stroke: "hsl(var(--border))" }}
             />
             <YAxis 
-              domain={[-1, 1]} 
-              ticks={[-1, 0, 1]}
               tick={{ fontSize: 9, fill: "hsl(var(--muted-foreground))" }}
               axisLine={{ stroke: "hsl(var(--border))" }}
               width={25}
             />
-            <Line 
-              type="monotone" 
+            <Bar 
               dataKey="value" 
-              stroke="hsl(var(--primary))" 
-              strokeWidth={2}
-              dot={false}
+              fill="hsl(var(--stat-green))" 
+              radius={[4, 4, 0, 0]}
+              barSize={16}
             />
-          </LineChart>
+          </BarChart>
         </ResponsiveContainer>
       </div>
     </DashboardCard>
