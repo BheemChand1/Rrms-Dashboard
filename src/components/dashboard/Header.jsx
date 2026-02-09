@@ -57,8 +57,8 @@ const Header = ({ onMenuClick, sidebarCollapsed }) => {
         <a href="#" className="hidden sm:flex items-center text-xs hover:bg-white/15 px-2 py-1.5 rounded-lg transition-all">
           Help
         </a>
-        <button className="bg-destructive text-destructive-foreground p-1.5 sm:px-3 sm:py-1.5 rounded-lg text-xs font-semibold hover:bg-destructive/90 transition-all shadow-sm flex items-center gap-1.5">
-          <LogOut className="h-4 w-4" />
+        <button className="bg-destructive text-destructive-foreground p-2 sm:px-4 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold hover:bg-destructive/90 transition-all shadow-sm flex items-center gap-2">
+          <LogOut className="h-4 w-4 sm:h-5 sm:w-5" />
           <span className="hidden sm:inline">Sign Out</span>
         </button>
       </nav>
