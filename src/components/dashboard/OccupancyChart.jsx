@@ -9,7 +9,7 @@ const data = [
 const OccupancyChart = () => {
   return (
     <DashboardCard title="Occupancy Chart">
-      <div className="h-32">
+      <div className="h-40">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} layout="vertical">
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
