@@ -10,11 +10,11 @@ const colorClasses = {
 
 const StatCard = ({ icon: Icon, iconColor, title, stats }) => {
   return (
-    <div className="group bg-card rounded-xl xl:rounded-2xl shadow-sm border border-border/50 p-3 xl:p-4 2xl:p-5 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
-      <div className="flex items-center gap-2 xl:gap-3 2xl:gap-4">
-        {/* Icon Section */}
-        <div className={`p-2 xl:p-3 2xl:p-4 rounded-lg xl:rounded-xl ${colorClasses[iconColor]} flex-shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300`}>
-          <Icon className="h-5 w-5 xl:h-6 xl:w-6 2xl:h-8 2xl:w-8 text-white" />
+    <div className="group bg-card rounded-lg xl:rounded-xl shadow-sm border border-border/50 p-2 xl:p-3 2xl:p-4 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
+      <div className="flex items-center gap-3 xl:gap-4 2xl:gap-5">
+        {/* Icon Section - Large square like reference */}
+        <div className={`p-3 xl:p-4 2xl:p-5 rounded-lg xl:rounded-xl ${colorClasses[iconColor]} flex-shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300`}>
+          <Icon className="h-7 w-7 xl:h-9 xl:w-9 2xl:h-11 2xl:w-11 text-white" />
         </div>
         
         {/* Content Section */}
