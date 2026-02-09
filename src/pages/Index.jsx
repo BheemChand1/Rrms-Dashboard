@@ -116,44 +116,44 @@ const Index = () => {
       />
       
       {/* Spacer for fixed sidebar */}
-      <div className={`hidden lg:block flex-shrink-0 transition-all duration-300 ${sidebarCollapsed ? "w-16" : "w-56"}`} />
+      <div className={`hidden lg:block flex-shrink-0 transition-all duration-300 ${sidebarCollapsed ? "w-16" : "w-56 xl:w-64 2xl:w-72"}`} />
       
       <div className="flex-1 flex flex-col min-w-0">
         <Header onMenuClick={() => setSidebarOpen(true)} sidebarCollapsed={sidebarCollapsed} />
         
         {/* Spacer for fixed header */}
-        <div className="h-12 flex-shrink-0" />
+        <div className="h-12 xl:h-14 2xl:h-16 flex-shrink-0" />
         
-        <main className="flex-1 p-3 lg:p-4 overflow-auto">
-          <div className="flex items-center gap-2 mb-3 text-muted-foreground">
-            <span className="text-xs">📋 Daily report for</span>
-            <span className="text-xs font-semibold text-foreground">{currentDate}</span>
+        <main className="flex-1 p-3 lg:p-4 xl:p-6 2xl:p-8 overflow-auto">
+          <div className="flex items-center gap-2 mb-3 xl:mb-4 2xl:mb-5 text-muted-foreground">
+            <span className="text-xs xl:text-sm 2xl:text-base">📋 Daily report for</span>
+            <span className="text-xs xl:text-sm 2xl:text-base font-semibold text-foreground">{currentDate}</span>
           </div>
 
           {/* Stat Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-2 lg:gap-3 mb-3">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-2 lg:gap-3 xl:gap-4 2xl:gap-5 mb-3 xl:mb-4 2xl:mb-5">
             {statCards.map((card, index) => (
               <StatCard key={index} {...card} />
             ))}
           </div>
 
           {/* Middle Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-3 mb-3">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-3 xl:gap-4 2xl:gap-5 mb-3 xl:mb-4 2xl:mb-5">
             <GrossHappinessIndex />
             <LatestComments />
             <AveragePerformance />
           </div>
 
           {/* Charts Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-3">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-3 xl:gap-4 2xl:gap-5">
             <ComplaintStatusChart />
             <OccupancyChart />
             <WeeklyFeedbackChart />
           </div>
 
           {/* Footer */}
-          <footer className="mt-4 pt-3 border-t border-border/50 text-center">
-            <p className="text-[10px] text-muted-foreground">
+          <footer className="mt-4 xl:mt-6 2xl:mt-8 pt-3 xl:pt-4 2xl:pt-5 border-t border-border/50 text-center">
+            <p className="text-[10px] xl:text-xs 2xl:text-sm text-muted-foreground">
               © 2026 Reception Manager • Designed by beatleanalytics.com
             </p>
           </footer>

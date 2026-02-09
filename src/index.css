@@ -109,6 +109,7 @@
     @apply bg-background text-foreground antialiased;
     font-family: 'Varela Round', sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
+    @apply text-sm xl:text-base 2xl:text-lg;
   }
 
   /* Modern scrollbar */
