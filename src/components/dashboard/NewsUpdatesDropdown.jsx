@@ -67,12 +67,12 @@ const NewsUpdatesDropdown = ({ isOpen, onClose, onToggle }) => {
       {/* Button */}
       <button
         onClick={onToggle}
-        className="hidden sm:flex items-center gap-1.5 text-sm hover:bg-white/10 px-2 py-1 rounded-md transition-colors"
+        className="relative flex items-center gap-1.5 text-sm hover:bg-white/10 px-2 py-1 rounded-md transition-colors"
       >
         <Newspaper className="h-4 w-4" />
-        <span>Updates</span>
+        <span className="hidden sm:inline">Updates</span>
         {newCount > 0 && (
-          <span className="bg-stat-yellow text-black text-[10px] px-1.5 py-0.5 rounded-full font-medium">
+          <span className="absolute -top-1 -right-1 sm:static bg-stat-yellow text-black text-[10px] px-1.5 py-0.5 rounded-full font-medium">
             {newCount}
           </span>
         )}
@@ -82,10 +82,10 @@ const NewsUpdatesDropdown = ({ isOpen, onClose, onToggle }) => {
       {isOpen && (
         <>
           {/* Backdrop */}
-          <div className="fixed inset-0 z-40" onClick={onClose} />
+          <div className="fixed inset-0 z-40 bg-black/20" onClick={onClose} />
 
           {/* Dropdown */}
-          <div className="absolute right-0 top-full mt-2 w-80 sm:w-96 bg-card rounded-xl shadow-xl border border-border z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="fixed left-2 right-2 top-14 sm:absolute sm:left-auto sm:right-0 sm:top-full sm:mt-2 sm:w-96 bg-card rounded-xl shadow-xl border border-border z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
             {/* Header */}
             <div className="flex items-center justify-between px-4 py-3 bg-muted/50 border-b border-border">
               <div className="flex items-center gap-2">
