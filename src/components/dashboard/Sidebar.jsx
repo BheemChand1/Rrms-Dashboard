@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   LayoutDashboard,
   Building2,
@@ -30,6 +30,11 @@ const menuItems = [
     submenu: [
       { label: "View Inventory", path: "/occupancy/inventory" },
       { label: "Report", path: "/occupancy/report" },
+      { label: "Summary", path: "/occupancy/summary" },
+      { label: "Peak Hours", path: "/occupancy/peak-hours" },
+      { label: "Duration", path: "/occupancy/duration" },
+      { label: "Wakeup Call", path: "/occupancy/wakeup-call" },
+      { label: "Wakeup History", path: "/occupancy/wakeup-history" },
     ],
   },
   { icon: BookOpen, label: "In-Out Register", path: "#", hasSubmenu: true },
@@ -62,6 +67,11 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
 
   const [expandedMenu, setExpandedMenu] = useState(getInitialExpandedMenu);
 
+  // Update expanded menu when location changes
+  useEffect(() => {
+    setExpandedMenu(getInitialExpandedMenu());
+  }, [location.pathname]);
+
   const toggleSubmenu = (label) => {
     setExpandedMenu(expandedMenu === label ? null : label);
   };
@@ -81,13 +91,13 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
       )}
 
       <aside
-        className={`fixed inset-y-0 left-0 z-50 bg-gradient-to-b from-sidebar to-sidebar/95 transform transition-all duration-300 ease-in-out flex flex-col shadow-2xl ${
+        className={`fixed inset-y-0 left-0 z-50 bg-gradient-to-b from-sidebar to-sidebar/95 flex flex-col shadow-2xl ${
           isCollapsed ? "w-16" : "w-56 xl:w-64 2xl:w-72"
         } ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}
       >
         {/* Mobile close button */}
         <button
-          className="lg:hidden absolute top-4 right-4 text-sidebar-foreground hover:text-white p-1.5 rounded-lg hover:bg-white/10 transition-colors"
+          className="lg:hidden absolute top-4 right-4 text-sidebar-foreground hover:text-white p-1.5 rounded-lg hover:bg-white/10"
           onClick={onClose}
         >
           <X className="h-5 w-5" />
@@ -95,11 +105,11 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
 
         {/* Desktop collapse toggle */}
         <button
-          className="hidden lg:flex absolute -right-3 top-20 z-50 w-6 h-6 xl:w-7 xl:h-7 2xl:w-8 2xl:h-8 bg-primary text-white rounded-full items-center justify-center shadow-lg hover:bg-primary/80 transition-colors"
+          className="hidden lg:flex absolute -right-3 top-20 z-50 w-6 h-6 xl:w-7 xl:h-7 2xl:w-8 2xl:h-8 bg-primary text-white rounded-full items-center justify-center shadow-lg hover:bg-primary/80"
           onClick={onToggleCollapse}
         >
           <ChevronLeft
-            className={`h-4 w-4 xl:h-5 xl:w-5 transition-transform duration-300 ${isCollapsed ? "rotate-180" : ""}`}
+            className={`h-4 w-4 xl:h-5 xl:w-5 ${isCollapsed ? "rotate-180" : ""}`}
           />
         </button>
 
@@ -112,7 +122,7 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
             <img
               src={railwayLogo}
               alt="Indian Railways Logo"
-              className={`object-contain transition-all duration-300 ${isCollapsed ? "w-10 h-10" : "w-16 h-16 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24"}`}
+              className={`object-contain ${isCollapsed ? "w-10 h-10" : "w-16 h-16 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24"}`}
             />
           </div>
         </div>
@@ -149,7 +159,7 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
                       toggleSubmenu(item.label);
                       isOpen && onClose();
                     }}
-                    className={`w-full flex items-center ${isCollapsed ? "justify-center" : "justify-between"} px-3 xl:px-3.5 py-2 xl:py-2.5 text-sm xl:text-base rounded-xl mb-1 transition-all duration-200 group ${
+                    className={`w-full flex items-center ${isCollapsed ? "justify-center" : "justify-between"} px-3 xl:px-3.5 py-2 xl:py-2.5 text-sm xl:text-base rounded-xl mb-1 group ${
                       submenuActive || isExpanded
                         ? "bg-primary text-white shadow-md shadow-primary/30"
                         : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-white"
@@ -159,14 +169,14 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
                     <div
                       className={`flex items-center ${isCollapsed ? "" : "gap-2.5 xl:gap-3"}`}
                     >
-                      <item.icon className="h-4 w-4 xl:h-5 xl:w-5 transition-transform group-hover:scale-110" />
+                      <item.icon className="h-4 w-4 xl:h-5 xl:w-5" />
                       {!isCollapsed && (
                         <span className="font-medium">{item.label}</span>
                       )}
                     </div>
                     {!isCollapsed && (
                       <ChevronDown
-                        className={`h-3.5 w-3.5 xl:h-4 xl:w-4 transition-transform ${
+                        className={`h-3.5 w-3.5 xl:h-4 xl:w-4 ${
                           isExpanded ? "rotate-180" : ""
                         }`}
                       />
@@ -177,7 +187,7 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
                     to={item.path}
                     title={isCollapsed ? item.label : undefined}
                     onClick={() => isOpen && onClose()}
-                    className={`flex items-center ${isCollapsed ? "justify-center" : "justify-between"} px-3 xl:px-3.5 py-2 xl:py-2.5 text-sm xl:text-base rounded-xl mb-1 transition-all duration-200 group ${
+                    className={`flex items-center ${isCollapsed ? "justify-center" : "justify-between"} px-3 xl:px-3.5 py-2 xl:py-2.5 text-sm xl:text-base rounded-xl mb-1 group ${
                       isActive
                         ? "bg-primary text-white shadow-md shadow-primary/30"
                         : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-white"
@@ -186,9 +196,7 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
                     <div
                       className={`flex items-center ${isCollapsed ? "" : "gap-2.5 xl:gap-3"}`}
                     >
-                      <item.icon
-                        className={`h-4 w-4 xl:h-5 xl:w-5 ${isActive ? "" : "group-hover:scale-110"} transition-transform`}
-                      />
+                      <item.icon className={`h-4 w-4 xl:h-5 xl:w-5`} />
                       {!isCollapsed && (
                         <span className="font-medium">{item.label}</span>
                       )}
@@ -209,7 +217,7 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
                           key={subindex}
                           to={subitem.path}
                           onClick={() => isOpen && onClose()}
-                          className={`flex items-center px-3 xl:px-3.5 py-2 xl:py-2.5 text-xs xl:text-sm rounded-lg transition-all duration-200 ${
+                          className={`flex items-center px-3 xl:px-3.5 py-2 xl:py-2.5 text-xs xl:text-sm rounded-lg ${
                             isSubActive
                               ? "bg-primary/20 text-primary font-medium"
                               : "text-sidebar-foreground/70 hover:text-white hover:bg-sidebar-accent/50"
