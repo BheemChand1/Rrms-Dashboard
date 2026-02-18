@@ -18,12 +18,12 @@ const SidebarSpacer = styled.div`
     display: block;
     flex-shrink: 0;
     transition: all 0.3s;
-    width: ${(props) => (props.collapsed ? "4rem" : "14rem")};
+    width: ${(props) => (props.collapsed ? "4rem" : "11rem")};
     @media (min-width: 1280px) {
-      width: ${(props) => (props.collapsed ? "4rem" : "16rem")};
+      width: ${(props) => (props.collapsed ? "4rem" : "13rem")};
     }
     @media (min-width: 1536px) {
-      width: ${(props) => (props.collapsed ? "4rem" : "18rem")};
+      width: ${(props) => (props.collapsed ? "4rem" : "15rem")};
     }
   }
 `;
@@ -373,6 +373,7 @@ const columns = [
     dataIndex: "name",
     key: "name",
     width: 140,
+    align: "center",
   },
   {
     title: "HEAD QUARTER",
@@ -386,6 +387,7 @@ const columns = [
     dataIndex: "roomName",
     key: "roomName",
     width: 110,
+    align: "center",
   },
   {
     title: "BED NO",
@@ -419,10 +421,13 @@ const columns = [
     title: "WAKE UP CALL",
     key: "wakeupCall",
     width: 130,
+    align: "center",
     render: (_, record) => (
-      <WakeupCallButton onClick={() => window.setWakeupCallData(record)}>
-        Set Wakeup Call
-      </WakeupCallButton>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <WakeupCallButton onClick={() => window.setWakeupCallData(record)}>
+          Set Wakeup Call
+        </WakeupCallButton>
+      </div>
     ),
   },
 ];

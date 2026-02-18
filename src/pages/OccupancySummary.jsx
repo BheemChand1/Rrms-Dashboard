@@ -30,12 +30,12 @@ const SidebarSpacer = styled.div`
     display: block;
     flex-shrink: 0;
     transition: all 0.3s;
-    width: ${(props) => (props.collapsed ? "4rem" : "14rem")};
+    width: ${(props) => (props.collapsed ? "4rem" : "11rem")};
     @media (min-width: 1280px) {
-      width: ${(props) => (props.collapsed ? "4rem" : "16rem")};
+      width: ${(props) => (props.collapsed ? "4rem" : "13rem")};
     }
     @media (min-width: 1536px) {
-      width: ${(props) => (props.collapsed ? "4rem" : "18rem")};
+      width: ${(props) => (props.collapsed ? "4rem" : "15rem")};
     }
   }
 `;
@@ -376,18 +376,21 @@ const columns = [
     dataIndex: "name",
     key: "name",
     width: 120,
+    align: "center",
   },
   {
     title: "CMS ID",
     dataIndex: "cmsId",
     key: "cmsId",
     width: 85,
+    align: "center",
   },
   {
     title: "Designation",
     dataIndex: "designation",
     key: "designation",
     width: 100,
+    align: "center",
   },
   {
     title: "HQ",
@@ -401,24 +404,28 @@ const columns = [
     dataIndex: "gender",
     key: "gender",
     width: 80,
+    align: "center",
   },
   {
     title: "Check-in Date & Time",
     dataIndex: "checkInDateTime",
     key: "checkInDateTime",
     width: 150,
+    align: "center",
   },
   {
     title: "Check-out Date & Time",
     dataIndex: "checkOutDateTime",
     key: "checkOutDateTime",
     width: 150,
+    align: "center",
   },
   {
     title: "Room No.",
     dataIndex: "roomNo",
     key: "roomNo",
     width: 85,
+    align: "center",
   },
   {
     title: "Bed No.",
@@ -432,6 +439,7 @@ const columns = [
     dataIndex: "restHours",
     key: "restHours",
     width: 120,
+    align: "center",
   },
 ];
 

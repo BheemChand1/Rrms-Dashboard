@@ -1,5 +1,12 @@
 import DashboardCard from "./DashboardCard.jsx";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  ResponsiveContainer,
+} from "recharts";
 
 const data = [
   { day: "Sun", value: 2 },
@@ -18,19 +25,19 @@ const ComplaintStatusChart = () => {
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data}>
             <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-            <XAxis 
-              dataKey="day" 
+            <XAxis
+              dataKey="day"
               tick={{ fontSize: 9, fill: "hsl(var(--muted-foreground))" }}
               axisLine={{ stroke: "hsl(var(--border))" }}
             />
-            <YAxis 
+            <YAxis
               tick={{ fontSize: 9, fill: "hsl(var(--muted-foreground))" }}
               axisLine={{ stroke: "hsl(var(--border))" }}
               width={25}
             />
-            <Bar 
-              dataKey="value" 
-              fill="hsl(var(--stat-red))" 
+            <Bar
+              dataKey="value"
+              fill="hsl(var(--stat-red))"
               radius={[4, 4, 0, 0]}
               barSize={16}
             />

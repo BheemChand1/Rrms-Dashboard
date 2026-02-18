@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { Menu, LogOut } from "lucide-react";
+import styled from "styled-components";
 import NotificationDropdown from "./NotificationDropdown.jsx";
 import NewsUpdatesDropdown from "./NewsUpdatesDropdown.jsx";
+
+const StyledHeader = styled.header`
+  background: linear-gradient(to right, #07a759, #48a9d4) !important;
+`;
 
 const Header = ({ onMenuClick, sidebarCollapsed }) => {
   const [notificationOpen, setNotificationOpen] = useState(false);
@@ -13,8 +18,8 @@ const Header = ({ onMenuClick, sidebarCollapsed }) => {
   };
 
   return (
-    <header
-      className={`fixed top-0 right-0 z-40 bg-gradient-to-r from-primary via-primary to-accent h-12 xl:h-14 2xl:h-16 flex items-center justify-between px-4 xl:px-6 2xl:px-8 text-primary-foreground shadow-md transition-all duration-300 ${sidebarCollapsed ? "left-16" : "left-0 lg:left-56 xl:left-64 2xl:left-72"}`}
+    <StyledHeader
+      className={`fixed top-0 right-0 z-40 h-12 xl:h-14 2xl:h-16 flex items-center justify-between px-4 xl:px-6 2xl:px-8 text-primary-foreground shadow-md transition-all duration-300 ${sidebarCollapsed ? "left-16" : "left-0 lg:left-44 xl:left-52 2xl:left-60"}`}
     >
       <div className="flex items-center gap-3 xl:gap-4">
         <button
@@ -75,7 +80,7 @@ const Header = ({ onMenuClick, sidebarCollapsed }) => {
           <span className="hidden sm:inline">Sign Out</span>
         </button>
       </nav>
-    </header>
+    </StyledHeader>
   );
 };
 

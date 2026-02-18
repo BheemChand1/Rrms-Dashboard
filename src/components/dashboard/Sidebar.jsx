@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import styled from "styled-components";
 import {
   LayoutDashboard,
   Building2,
@@ -20,6 +21,16 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import railwayLogo from "@/assets/indian-railway-logo.png";
 
+const ActiveMenuItem = styled.button`
+  background: linear-gradient(to right, #07a759, #48a9d4) !important;
+  color: white;
+`;
+
+const ActiveMenuLink = styled.a`
+  background: linear-gradient(to right, #07a759, #48a9d4) !important;
+  color: white;
+`;
+
 const menuItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/" },
   {
@@ -37,7 +48,16 @@ const menuItems = [
       { label: "Wakeup History", path: "/occupancy/wakeup-history" },
     ],
   },
-  { icon: BookOpen, label: "In-Out Register", path: "#", hasSubmenu: true },
+  {
+    icon: BookOpen,
+    label: "In-Out Register",
+    path: "#",
+    hasSubmenu: true,
+    submenu: [
+      { label: "Set In-Out", path: "/in-out/set-in-out" },
+      { label: "Report", path: "/in-out/report" },
+    ],
+  },
   { icon: Star, label: "Booking Type", path: "#", hasSubmenu: true },
   { icon: FileText, label: "Requests", path: "#", hasSubmenu: true },
   { icon: Utensils, label: "Meal", path: "#", hasSubmenu: true },
@@ -92,7 +112,7 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
 
       <aside
         className={`fixed inset-y-0 left-0 z-50 bg-gradient-to-b from-sidebar to-sidebar/95 flex flex-col shadow-2xl ${
-          isCollapsed ? "w-16" : "w-56 xl:w-64 2xl:w-72"
+          isCollapsed ? "w-16" : "w-44 xl:w-52 2xl:w-60"
         } ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}`}
       >
         {/* Mobile close button */}
@@ -161,9 +181,17 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
                     }}
                     className={`w-full flex items-center ${isCollapsed ? "justify-center" : "justify-between"} px-3 xl:px-3.5 py-2 xl:py-2.5 text-sm xl:text-base rounded-xl mb-1 group ${
                       submenuActive || isExpanded
-                        ? "bg-primary text-white shadow-md shadow-primary/30"
+                        ? "text-white"
                         : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-white"
                     }`}
+                    style={
+                      submenuActive || isExpanded
+                        ? {
+                            background:
+                              "linear-gradient(to right, #07a759, #48a9d4)",
+                          }
+                        : {}
+                    }
                     title={isCollapsed ? item.label : undefined}
                   >
                     <div
@@ -189,9 +217,17 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
                     onClick={() => isOpen && onClose()}
                     className={`flex items-center ${isCollapsed ? "justify-center" : "justify-between"} px-3 xl:px-3.5 py-2 xl:py-2.5 text-sm xl:text-base rounded-xl mb-1 group ${
                       isActive
-                        ? "bg-primary text-white shadow-md shadow-primary/30"
+                        ? "text-white"
                         : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-white"
                     }`}
+                    style={
+                      isActive
+                        ? {
+                            background:
+                              "linear-gradient(to right, #07a759, #48a9d4)",
+                          }
+                        : {}
+                    }
                   >
                     <div
                       className={`flex items-center ${isCollapsed ? "" : "gap-2.5 xl:gap-3"}`}

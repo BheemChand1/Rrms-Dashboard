@@ -40,24 +40,24 @@ const LegendLabel = styled.span`
 const RoomsWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem;
+  gap: 1.5rem;
 `;
 
 const RoomSection = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 `;
 
 const RoomTitle = styled.h3`
-  font-size: 1.125rem;
+  font-size: 1.375rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   text-align: center;
 `;
 
 const BedsGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.5rem;
 `;
 
 const BedContainer = styled.div`
@@ -83,16 +83,16 @@ const BedBox = styled.div`
   }
 
   svg {
-    width: 28px;
-    height: 28px;
-    color: white;
+    width: 36px;
+    height: 36px;
+    color: ${(props) => props.iconColor || "white"};
   }
 `;
 
 const BedLabel = styled.p`
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  margin-top: 0.5rem;
+  margin-top: 0.25rem;
   text-align: center;
 `;
 
@@ -192,7 +192,7 @@ const ModalContent = styled.div`
 const bedStatuses = {
   vacant: "#16a34a",
   occupied: "#dc2626",
-  checkingOut: "#facc15",
+  checkingOut: "#fff700",
   block: "#ea580c",
 };
 
@@ -878,6 +878,10 @@ const BedIcon = ({ status, guestName, cmsId, designation }) => {
     return bedStatuses[status] || bedStatuses.vacant;
   };
 
+  const getIconColor = () => {
+    return status === "checkingOut" ? "black" : "white";
+  };
+
   const tooltipContent = guestName ? (
     <TooltipContent>
       <p>
@@ -894,7 +898,7 @@ const BedIcon = ({ status, guestName, cmsId, designation }) => {
 
   return (
     <Tooltip title={tooltipContent} color="#1a1a1a">
-      <BedBox color={getColor()}>
+      <BedBox color={getColor()} iconColor={getIconColor()}>
         <FaBed />
       </BedBox>
     </Tooltip>
@@ -924,7 +928,7 @@ const RoomInventory = () => {
           </LegendLabel>
         </LegendItem>
         <LegendItem>
-          <LegendLabel color="#facc15" isDark={false}>
+          <LegendLabel color="#fff700" isDark={false}>
             Checking out
           </LegendLabel>
         </LegendItem>

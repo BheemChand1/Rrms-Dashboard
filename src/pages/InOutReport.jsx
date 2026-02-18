@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Table, Button, Space, Input, Select, DatePicker } from "antd";
+import { Table, Button, Input, Select, DatePicker, Space } from "antd";
 import styled from "styled-components";
 import Header from "../components/dashboard/Header.jsx";
 import Sidebar from "../components/dashboard/Sidebar.jsx";
@@ -96,6 +96,7 @@ const TableWrapper = styled.div`
   .ant-table-tbody > tr > td {
     padding: 14px 12px;
     border-bottom: 1px solid #f0f0f0;
+    text-align: center;
   }
 
   .ant-table-wrapper {
@@ -161,16 +162,17 @@ const FilterContainer = styled.div`
   border-radius: 10px;
   border: 1px solid #e8f7f4;
 
-  .filter-item {
+  .filter-group {
     display: flex;
     gap: 0.75rem;
     align-items: center;
 
     label {
       font-weight: 600;
-      min-width: 80px;
+      min-width: auto;
       color: #2c3e50;
       font-size: 0.9rem;
+      white-space: nowrap;
     }
 
     input,
@@ -186,153 +188,153 @@ const FilterContainer = styled.div`
       }
     }
 
+    .ant-picker {
+      border-radius: 6px !important;
+    }
+
     span {
       color: #5a6c7d;
       font-weight: 500;
     }
   }
+
+  .search-section {
+    margin-left: auto;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      margin-left: 0;
+      width: 100%;
+
+      input {
+        flex: 1;
+      }
+    }
+  }
 `;
 
-const occupancyData = [
+const inOutData = [
   {
     key: "1",
     sNo: 1,
-    name: "Munna Lal Meena",
-    headQuarter: "COR",
-    roomName: "Room No-10",
-    bedNo: 38,
-    designation: "Sr ALP",
+    name: "MUKESH KUMAR PANDEY",
+    cmsId: "HAPA7138",
+    headQuarter: "HAPA",
+    designation: "TM",
     department: "Freight",
-    checkinDate: "09-Feb-2026 15:38:19",
-    checkoutDate: "Plan Checkout",
-    status: "Checked-in",
-    action: "Checked-Out",
+    outTime: "2025-08-01 17:30:00",
+    inTime: "2025-08-01 18:30:00",
+    reason: "working",
   },
   {
     key: "2",
     sNo: 2,
-    name: "Pukh raj meena",
-    headQuarter: "cor",
-    roomName: "Room No-10",
-    bedNo: 37,
-    designation: "Sr ALP",
+    name: "Dilip Gohil",
+    cmsId: "HAPA1301",
+    headQuarter: "HAPA",
+    designation: "LP(G)",
     department: "Freight",
-    checkinDate: "09-Feb-2026 15:38:17",
-    checkoutDate: "Plan Checkout",
-    status: "Checked-in",
-    action: "Checked-Out",
+    outTime: "2025-08-01 17:30:00",
+    inTime: "2025-08-01 18:30:00",
+    reason: "working",
   },
   {
     key: "3",
     sNo: 3,
-    name: "Vinod Kumar Jangid",
-    headQuarter: "COR",
-    roomName: "Room No-13",
-    bedNo: 45,
-    designation: "Sr ALP",
-    department: "Coaching",
-    checkinDate: "09-Feb-2026 15:38:16",
-    checkoutDate: "09-02-2026 21:05:00",
-    status: "Checked-in",
-    action: "Checked-Out",
+    name: "HITEN MANSUKHLAL VARAN",
+    cmsId: "HAPA1354",
+    headQuarter: "HAPA",
+    designation: "LP(G)",
+    department: "Freight",
+    outTime: "2025-08-02 19:00:00",
+    inTime: "2025-08-02 19:21:00",
+    reason: "market",
   },
   {
     key: "4",
     sNo: 4,
-    name: "Omprakash meena",
-    headQuarter: "COr",
-    roomName: "Room No-12",
-    bedNo: 44,
-    designation: "LP(P)",
-    department: "Coaching",
-    checkinDate: "09-Feb-2026 15:38:13",
-    checkoutDate: "09-02-2026 21:05:00",
-    status: "Checked-in",
-    action: "Checked-Out",
+    name: "BHARAT BHUSHAN",
+    cmsId: "HAPA1207",
+    headQuarter: "HAPA",
+    designation: "LP(G)",
+    department: "Freight",
+    outTime: "2025-08-02 18:10:00",
+    inTime: "2025-08-02 18:40:00",
+    reason: "working",
   },
   {
     key: "5",
     sNo: 5,
-    name: "Buddhi Prakash Saini",
-    headQuarter: "Mj",
-    roomName: "Room No-1",
-    bedNo: 1,
-    designation: "ALP",
+    name: "Ravish Kumar",
+    cmsId: "HAPA1493",
+    headQuarter: "HApa",
+    designation: "Sr ALP",
     department: "Freight",
-    checkinDate: "09-Feb-2026 14:39:31",
-    checkoutDate: "Plan Checkout",
-    status: "Checked-in",
-    action: "Checked-Out",
+    outTime: "2025-08-02 18:10:00",
+    inTime: "2025-08-02 18:40:00",
+    reason: "working",
   },
   {
     key: "6",
     sNo: 6,
-    name: "RAMAVATAR MEENA",
-    headQuarter: "CHITTORGARh",
-    roomName: "Room No-3",
-    bedNo: 10,
-    designation: "Sr ALP",
+    name: "Dharamshi R",
+    cmsId: "RJT1480",
+    headQuarter: "RJT",
+    designation: "LP (M/Exp)",
     department: "Coaching",
-    checkinDate: "09-Feb-2026 14:23:07",
-    checkoutDate: "09-02-2026 21:05:00",
-    status: "Checked-in",
-    action: "Checked-Out",
+    outTime: "2025-08-03 17:10:00",
+    inTime: "2025-08-03 18:20:00",
+    reason: "MANDIR",
   },
   {
     key: "7",
     sNo: 7,
-    name: "Puran Prakash Shrivastav",
-    headQuarter: "COR",
-    roomName: "Room No-3",
-    bedNo: 9,
-    designation: "LP (M/Exp)",
+    name: "Jaydip Girishbhai babariya",
+    cmsId: "RJT1398",
+    headQuarter: "RAJKOT",
+    designation: "Sr ALP",
     department: "Coaching",
-    checkinDate: "09-Feb-2026 14:23:06",
-    checkoutDate: "09-02-2026 21:05:00",
-    status: "Checked-in",
-    action: "Checked-Out",
+    outTime: "2025-08-03 17:10:00",
+    inTime: "2025-08-03 18:20:00",
+    reason: "MANDIR",
   },
   {
     key: "8",
     sNo: 8,
-    name: "Harish kumar Avasthi",
-    headQuarter: "BKi",
-    roomName: "Room No-4",
-    bedNo: 13,
-    designation: "Sr ALP",
+    name: "D K PARMAR",
+    cmsId: "RJT077",
+    headQuarter: "OKHa",
+    designation: "TM",
     department: "Coaching",
-    checkinDate: "09-Feb-2026 13:51:35",
-    checkoutDate: "09-02-2026 20:35:00",
-    status: "Checked-in",
-    action: "Checked-Out",
+    outTime: "2025-08-04 18:35:00",
+    inTime: "2025-08-04 19:00:00",
+    reason: "market",
   },
   {
     key: "9",
     sNo: 9,
-    name: "Rakesh kumar sharma",
-    headQuarter: "BKi",
-    roomName: "Room No-4",
-    bedNo: 14,
-    designation: "LP (M/Exp)",
+    name: "D D JADEJA",
+    cmsId: "RJT1353",
+    headQuarter: "RJt",
+    designation: "LP(P)",
     department: "Coaching",
-    checkinDate: "09-Feb-2026 13:51:33",
-    checkoutDate: "09-02-2026 20:35:00",
-    status: "Checked-in",
-    action: "Checked-Out",
+    outTime: "2025-08-05 18:41:00",
+    inTime: "2025-08-05 18:50:00",
+    reason: "market",
   },
   {
     key: "10",
     sNo: 10,
-    name: "Kana Ram Meena",
-    headQuarter: "Jp",
-    roomName: "Room No-12",
-    bedNo: 43,
-    designation: "ALP",
+    name: "Anu Ranjan",
+    cmsId: "HAPA7059",
+    headQuarter: "HAPa",
+    designation: "TM",
     department: "Coaching",
-    checkinDate: "09-Feb-2026 13:26:34",
-    checkoutDate: "10-02-2026 01:10:00",
-    status: "Checked-in",
-    action: "Checked-Out",
+    outTime: "2025-08-06 18:20:00",
+    inTime: "2025-08-06 19:00:00",
+    reason: "working",
   },
 ];
 
@@ -364,129 +366,85 @@ const columns = [
     title: "Name",
     dataIndex: "name",
     key: "name",
-    width: 120,
+    width: 140,
+    align: "center",
+  },
+  {
+    title: "CMS_id",
+    dataIndex: "cmsId",
+    key: "cmsId",
+    width: 110,
     align: "center",
   },
   {
     title: "Head Quarter",
     dataIndex: "headQuarter",
     key: "headQuarter",
-    width: 100,
-    align: "center",
-  },
-  {
-    title: "Room Name",
-    dataIndex: "roomName",
-    key: "roomName",
-    width: 100,
-    align: "center",
-  },
-  {
-    title: "Bed No",
-    dataIndex: "bedNo",
-    key: "bedNo",
-    width: 80,
+    width: 110,
     align: "center",
   },
   {
     title: "Designation",
     dataIndex: "designation",
     key: "designation",
-    width: 100,
+    width: 110,
     align: "center",
   },
   {
     title: "Department",
     dataIndex: "department",
     key: "department",
-    width: 100,
+    width: 110,
     align: "center",
   },
   {
-    title: "Checkin Date/Time",
-    dataIndex: "checkinDate",
-    key: "checkinDate",
+    title: "Out_Time",
+    dataIndex: "outTime",
+    key: "outTime",
     width: 150,
     align: "center",
   },
   {
-    title: "Checkout Date/Time",
-    dataIndex: "checkoutDate",
-    key: "checkoutDate",
+    title: "In_Time",
+    dataIndex: "inTime",
+    key: "inTime",
     width: 150,
     align: "center",
   },
   {
-    title: "Status",
-    dataIndex: "status",
-    key: "status",
-    width: 100,
+    title: "Reason",
+    dataIndex: "reason",
+    key: "reason",
+    width: 120,
     align: "center",
     render: (text) => (
       <span
         style={{
-          color: "#52c41a",
-          fontWeight: "700",
+          color: "#004225",
+          fontWeight: "600",
           fontSize: "0.8rem",
-          textTransform: "uppercase",
-          letterSpacing: "0.5px",
-          backgroundColor: "#f6ffed",
+          textTransform: "capitalize",
+          backgroundColor: "#e6f7f0",
           padding: "4px 8px",
           borderRadius: "4px",
           display: "inline-block",
-          border: "1px solid #b7eb8f",
+          border: "1px solid #87d5c0",
         }}
       >
         {text}
       </span>
     ),
   },
-  {
-    title: "Action",
-    dataIndex: "action",
-    key: "action",
-    width: 120,
-    align: "center",
-    render: (text) => (
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <Button
-          danger
-          size="middle"
-          style={{
-            backgroundColor: "#ff4d4f",
-            borderColor: "#ff4d4f",
-            color: "white",
-            fontWeight: "600",
-            fontSize: "0.8rem",
-            borderRadius: "6px",
-            padding: "5px 12px",
-            boxShadow: "0 2px 8px rgba(255, 77, 79, 0.2)",
-            transition: "all 0.3s ease",
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.backgroundColor = "#ff7875";
-            e.target.style.boxShadow = "0 4px 12px rgba(255, 77, 79, 0.4)";
-            e.target.style.transform = "translateY(-2px)";
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.backgroundColor = "#ff4d4f";
-            e.target.style.boxShadow = "0 2px 8px rgba(255, 77, 79, 0.2)";
-            e.target.style.transform = "translateY(0)";
-          }}
-        >
-          {text}
-        </Button>
-      </div>
-    ),
-  },
 ];
 
-const OccupancyReport = () => {
+const InOutReport = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   const [searchText, setSearchText] = useState("");
 
-  const filteredData = occupancyData.filter((item) =>
+  const filteredData = inOutData.filter((item) =>
     Object.values(item).some(
       (value) =>
         typeof value === "string" &&
@@ -515,16 +473,25 @@ const OccupancyReport = () => {
 
         <MainContent>
           <FilterContainer>
-            <div className="filter-item">
-              <label>Search:</label>
-              <Input
-                placeholder="Search by name, room, bed, etc..."
-                value={searchText}
-                onChange={(e) => setSearchText(e.target.value)}
-                style={{ width: 300 }}
+            <div className="filter-group">
+              <label>From:</label>
+              <DatePicker
+                format="DD-MM-YYYY"
+                value={startDate}
+                onChange={(date) => setStartDate(date)}
+                style={{ width: 150 }}
               />
             </div>
-            <div className="filter-item">
+            <div className="filter-group">
+              <label>To:</label>
+              <DatePicker
+                format="DD-MM-YYYY"
+                value={endDate}
+                onChange={(date) => setEndDate(date)}
+                style={{ width: 150 }}
+              />
+            </div>
+            <div className="filter-group">
               <label>Show</label>
               <Select defaultValue="10" style={{ width: 80 }}>
                 <Select.Option value="10">10</Select.Option>
@@ -533,6 +500,15 @@ const OccupancyReport = () => {
                 <Select.Option value="100">100</Select.Option>
               </Select>
               <span>entries</span>
+            </div>
+            <div className="search-section">
+              <label>Search:</label>
+              <Input
+                placeholder="Search by name, CMS ID, reason..."
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+                style={{ width: 300 }}
+              />
             </div>
           </FilterContainer>
 
@@ -547,7 +523,7 @@ const OccupancyReport = () => {
                 showSizeChanger: false,
                 showQuickJumper: true,
               }}
-              scroll={{ x: 1200 }}
+              scroll={{ x: 1400 }}
               size="small"
             />
           </TableWrapper>
@@ -557,4 +533,4 @@ const OccupancyReport = () => {
   );
 };
 
-export default OccupancyReport;
+export default InOutReport;

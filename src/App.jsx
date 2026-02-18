@@ -7,6 +7,8 @@ import PeakOccupancyReport from "./pages/PeakOccupancyReport.jsx";
 import OccupancyDuration from "./pages/OccupancyDuration.jsx";
 import SetWakeupCall from "./pages/SetWakeupCall.jsx";
 import WakeupHistory from "./pages/WakeupHistory.jsx";
+import SetInOut from "./pages/SetInOut.jsx";
+import InOutReport from "./pages/InOutReport.jsx";
 
 const App = () => (
   <BrowserRouter>
@@ -19,6 +21,8 @@ const App = () => (
       <Route path="/occupancy/duration" element={<OccupancyDuration />} />
       <Route path="/occupancy/wakeup-call" element={<SetWakeupCall />} />
       <Route path="/occupancy/wakeup-history" element={<WakeupHistory />} />
+      <Route path="/in-out/set-in-out" element={<SetInOut />} />
+      <Route path="/in-out/report" element={<InOutReport />} />
       <Route path="*" element={<Index />} />
     </Routes>
   </BrowserRouter>

@@ -17,12 +17,12 @@ const SidebarSpacer = styled.div`
     display: block;
     flex-shrink: 0;
     transition: all 0.3s;
-    width: ${(props) => (props.collapsed ? "4rem" : "14rem")};
+    width: ${(props) => (props.collapsed ? "4rem" : "11rem")};
     @media (min-width: 1280px) {
-      width: ${(props) => (props.collapsed ? "4rem" : "16rem")};
+      width: ${(props) => (props.collapsed ? "4rem" : "13rem")};
     }
     @media (min-width: 1536px) {
-      width: ${(props) => (props.collapsed ? "4rem" : "18rem")};
+      width: ${(props) => (props.collapsed ? "4rem" : "15rem")};
     }
   }
 `;
@@ -284,6 +284,7 @@ const columns = [
     dataIndex: "time",
     key: "time",
     width: 200,
+    align: "center",
   },
 ];
 

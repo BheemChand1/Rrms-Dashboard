@@ -1,9 +1,28 @@
 import DashboardCard from "./DashboardCard.jsx";
 
 const comments = [
-  { id: 1, name: "DUSHYANT UPADHYAY", score: 10, location: "Ajmer", initials: "DU" },
-  { id: 2, name: "DUSHYANT UPADHYAY", score: 10, location: "Ajmer", initials: "DU" },
-  { id: 3, name: "K.S. Rawat", score: 4.3, location: "Ajmer", initials: "KS", note: "No" },
+  {
+    id: 1,
+    name: "DUSHYANT UPADHYAY",
+    score: 10,
+    location: "Ajmer",
+    initials: "DU",
+  },
+  {
+    id: 2,
+    name: "DUSHYANT UPADHYAY",
+    score: 10,
+    location: "Ajmer",
+    initials: "DU",
+  },
+  {
+    id: 3,
+    name: "K.S. Rawat",
+    score: 4.3,
+    location: "Ajmer",
+    initials: "KS",
+    note: "No",
+  },
 ];
 
 const LatestComments = () => {
@@ -17,8 +36,12 @@ const LatestComments = () => {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-1.5 flex-wrap">
-                <span className="text-primary font-medium text-xs truncate">{comment.name}</span>
-                <span className="text-muted-foreground text-[10px]">({comment.score})</span>
+                <span className="text-primary font-medium text-xs truncate">
+                  {comment.name}
+                </span>
+                <span className="text-muted-foreground text-[10px]">
+                  ({comment.score})
+                </span>
               </div>
             </div>
             <span className="bg-primary text-primary-foreground text-[9px] px-1.5 py-0.5 rounded">

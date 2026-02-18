@@ -18,7 +18,7 @@ const Occupancy = () => {
 
       {/* Spacer for fixed sidebar */}
       <div
-        className={`hidden lg:block flex-shrink-0 transition-all duration-300 ${sidebarCollapsed ? "w-16" : "w-56 xl:w-64 2xl:w-72"}`}
+        className={`hidden lg:block flex-shrink-0 transition-all duration-300 ${sidebarCollapsed ? "w-16" : "w-44 xl:w-52 2xl:w-60"}`}
       />
 
       <div className="flex-1 flex flex-col min-w-0">
