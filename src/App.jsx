@@ -9,6 +9,12 @@ import SetWakeupCall from "./pages/SetWakeupCall.jsx";
 import WakeupHistory from "./pages/WakeupHistory.jsx";
 import SetInOut from "./pages/SetInOut.jsx";
 import InOutReport from "./pages/InOutReport.jsx";
+import CoachingBookings from "./pages/CoachingBookings.jsx";
+import FreightBookings from "./pages/FreightBookings.jsx";
+import MealReport from "./pages/MealReport.jsx";
+import AddMealMenu from "./pages/AddMealMenu.jsx";
+import Staff from "./pages/Staff.jsx";
+import FeedbackReport from "./pages/FeedbackReport.jsx";
 
 const App = () => (
   <BrowserRouter>
@@ -21,6 +27,12 @@ const App = () => (
       <Route path="/occupancy/duration" element={<OccupancyDuration />} />
       <Route path="/occupancy/wakeup-call" element={<SetWakeupCall />} />
       <Route path="/occupancy/wakeup-history" element={<WakeupHistory />} />
+      <Route path="/booking-type/coaching" element={<CoachingBookings />} />
+      <Route path="/booking-type/freight" element={<FreightBookings />} />
+      <Route path="/meal/report" element={<MealReport />} />
+      <Route path="/meal/add-menu" element={<AddMealMenu />} />
+      <Route path="/staff/:staffType" element={<Staff />} />
+      <Route path="/feedback/report" element={<FeedbackReport />} />
       <Route path="/in-out/set-in-out" element={<SetInOut />} />
       <Route path="/in-out/report" element={<InOutReport />} />
       <Route path="*" element={<Index />} />
