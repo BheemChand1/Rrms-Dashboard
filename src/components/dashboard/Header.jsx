@@ -19,37 +19,37 @@ const Header = ({ onMenuClick, sidebarCollapsed }) => {
 
   return (
     <StyledHeader
-      className={`fixed top-0 right-0 z-40 h-12 xl:h-14 2xl:h-16 flex items-center justify-between px-4 xl:px-6 2xl:px-8 text-primary-foreground shadow-md transition-all duration-300 ${sidebarCollapsed ? "left-16" : "left-0 lg:left-44 xl:left-52 2xl:left-60"}`}
+      className={`fixed top-0 right-0 z-40 h-9 xl:h-10 2xl:h-11 flex items-center justify-between px-3 xl:px-4 2xl:px-6 text-primary-foreground shadow-md transition-all duration-300 ${sidebarCollapsed ? "left-16" : "left-0 lg:left-44 xl:left-52 2xl:left-60"}`}
     >
       <div className="flex items-center gap-3 xl:gap-4">
         <button
-          className="lg:hidden p-2 rounded-lg text-primary-foreground hover:bg-white/15 transition-colors"
+          className="lg:hidden p-1 rounded-lg text-primary-foreground hover:bg-white/15 transition-colors"
           onClick={onMenuClick}
         >
-          <Menu className="h-4 w-4 xl:h-5 xl:w-5" />
+          <Menu className="h-3.5 w-3.5 xl:h-4 xl:w-4" />
         </button>
-        <div className="flex items-center gap-2 xl:gap-3">
-          <div className="w-6 h-6 xl:w-8 xl:h-8 2xl:w-10 2xl:h-10 rounded-lg bg-white/20 flex items-center justify-center">
-            <span className="text-xs xl:text-sm 2xl:text-base font-bold">
+        <div className="flex items-center gap-2 xl:gap-2">
+          <div className="w-5 h-5 xl:w-6 xl:h-6 2xl:w-7 2xl:h-7 rounded-lg bg-white/20 flex items-center justify-center">
+            <span className="text-[10px] xl:text-xs 2xl:text-xs font-bold">
               ✓
             </span>
           </div>
-          <h1 className="text-sm xl:text-base 2xl:text-lg font-bold tracking-wide">
+          <h1 className="text-xs xl:text-xs 2xl:text-sm font-bold tracking-wide">
             DASHBOARD - AJMER
           </h1>
         </div>
       </div>
 
-      <nav className="flex items-center gap-1 sm:gap-2 xl:gap-3">
+      <nav className="flex items-center gap-0.5 sm:gap-1 xl:gap-2">
         <a
           href="#"
-          className="hidden sm:flex items-center text-xs xl:text-sm 2xl:text-base hover:bg-white/15 px-2 xl:px-3 py-1.5 xl:py-2 rounded-lg transition-all"
+          className="hidden sm:flex items-center text-[10px] xl:text-xs 2xl:text-xs hover:bg-white/15 px-2 xl:px-2 py-1 xl:py-1.5 rounded-lg transition-all"
         >
           Directory
         </a>
         <a
           href="#"
-          className="hidden sm:flex items-center text-xs xl:text-sm 2xl:text-base hover:bg-white/15 px-2 xl:px-3 py-1.5 xl:py-2 rounded-lg transition-all"
+          className="hidden sm:flex items-center text-[10px] xl:text-xs 2xl:text-xs hover:bg-white/15 px-2 xl:px-2 py-1 xl:py-1.5 rounded-lg transition-all"
         >
           IOS Scanner
         </a>
@@ -71,12 +71,12 @@ const Header = ({ onMenuClick, sidebarCollapsed }) => {
         />
         <a
           href="#"
-          className="hidden sm:flex items-center text-xs xl:text-sm 2xl:text-base hover:bg-white/15 px-2 xl:px-3 py-1.5 xl:py-2 rounded-lg transition-all"
+          className="hidden sm:flex items-center text-[10px] xl:text-xs 2xl:text-xs hover:bg-white/15 px-2 xl:px-2 py-1 xl:py-1.5 rounded-lg transition-all"
         >
           Help
         </a>
-        <button className="bg-destructive text-destructive-foreground p-1.5 xl:p-2 sm:px-3 xl:sm:px-4 sm:py-1.5 xl:sm:py-2 rounded-lg text-xs xl:text-sm font-semibold hover:bg-destructive/90 transition-all shadow-sm flex items-center gap-2">
-          <LogOut className="h-3.5 w-3.5 sm:h-4 sm:w-4 xl:h-5 xl:w-5" />
+        <button className="bg-destructive text-destructive-foreground p-1 xl:p-1.5 sm:px-2 xl:sm:px-3 sm:py-1 xl:sm:py-1.5 rounded-lg text-[10px] xl:text-xs font-semibold hover:bg-destructive/90 transition-all shadow-sm flex items-center gap-1.5">
+          <LogOut className="h-3 w-3 sm:h-3.5 sm:w-3.5 xl:h-4 xl:w-4" />
           <span className="hidden sm:inline">Sign Out</span>
         </button>
       </nav>

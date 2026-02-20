@@ -182,11 +182,11 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
         </div>
 
         {!isCollapsed && (
-          <div className="px-4 xl:px-5 2xl:px-6 py-4 xl:py-5 border-b border-sidebar-border/50">
-            <h2 className="text-sidebar-foreground text-sm xl:text-base 2xl:text-lg font-semibold tracking-wide">
+          <div className="px-4 xl:px-5 2xl:px-6 py-3 xl:py-4 border-b border-sidebar-border/50">
+            <h2 className="text-sidebar-foreground text-[10px] xl:text-xs 2xl:text-sm font-semibold tracking-wide">
               Reception Manager
             </h2>
-            <p className="text-sidebar-foreground/60 text-xs xl:text-sm mt-0.5">
+            <p className="text-sidebar-foreground/60 text-[9px] xl:text-[10px] mt-0.5">
               All Modules
             </p>
           </div>
@@ -213,7 +213,7 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
                       toggleSubmenu(item.label);
                       isOpen && onClose();
                     }}
-                    className={`w-full flex items-center ${isCollapsed ? "justify-center" : "justify-between"} px-3 xl:px-3.5 py-2 xl:py-2.5 text-sm xl:text-base rounded-xl mb-1 group ${
+                    className={`w-full flex items-center ${isCollapsed ? "justify-center" : "justify-between"} px-3 xl:px-3.5 py-2 xl:py-2.5 text-[10px] xl:text-[11px] rounded-lg mb-1 group ${
                       submenuActive || isExpanded
                         ? "text-white"
                         : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-white"
@@ -231,14 +231,16 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
                     <div
                       className={`flex items-center ${isCollapsed ? "" : "gap-2.5 xl:gap-3"}`}
                     >
-                      <item.icon className="h-4 w-4 xl:h-5 xl:w-5" />
+                      <item.icon className="h-4 w-4 xl:h-4.5 xl:w-4.5" />
                       {!isCollapsed && (
-                        <span className="font-medium">{item.label}</span>
+                        <span className="font-medium text-[10px] xl:text-[11px]">
+                          {item.label}
+                        </span>
                       )}
                     </div>
                     {!isCollapsed && (
                       <ChevronDown
-                        className={`h-3.5 w-3.5 xl:h-4 xl:w-4 ${
+                        className={`h-3 w-3 xl:h-3.5 xl:w-3.5 ${
                           isExpanded ? "rotate-180" : ""
                         }`}
                       />
@@ -249,7 +251,7 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
                     to={item.path}
                     title={isCollapsed ? item.label : undefined}
                     onClick={() => isOpen && onClose()}
-                    className={`flex items-center ${isCollapsed ? "justify-center" : "justify-between"} px-3 xl:px-3.5 py-2 xl:py-2.5 text-sm xl:text-base rounded-xl mb-1 group ${
+                    className={`flex items-center ${isCollapsed ? "justify-center" : "justify-between"} px-3 xl:px-3.5 py-2 xl:py-2.5 text-[10px] xl:text-[11px] rounded-lg mb-1 group ${
                       isActive
                         ? "text-white"
                         : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-white"
@@ -266,20 +268,22 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
                     <div
                       className={`flex items-center ${isCollapsed ? "" : "gap-2.5 xl:gap-3"}`}
                     >
-                      <item.icon className={`h-4 w-4 xl:h-5 xl:w-5`} />
+                      <item.icon className={`h-4 w-4 xl:h-4.5 xl:w-4.5`} />
                       {!isCollapsed && (
-                        <span className="font-medium">{item.label}</span>
+                        <span className="font-medium text-[10px] xl:text-[11px]">
+                          {item.label}
+                        </span>
                       )}
                     </div>
                     {!isCollapsed && item.hasSubmenu && (
-                      <ChevronRight className="h-3.5 w-3.5 xl:h-4 xl:w-4 opacity-50" />
+                      <ChevronRight className="h-3 w-3 xl:h-3.5 xl:w-3.5 opacity-50" />
                     )}
                   </Link>
                 )}
 
                 {/* Submenu */}
                 {item.submenu && isExpanded && !isCollapsed && (
-                  <div className="pl-2 mt-1 space-y-1">
+                  <div className="pl-2 mt-0.5 space-y-0.5">
                     {item.submenu.map((subitem, subindex) => {
                       const isSubActive = location.pathname === subitem.path;
                       return (
@@ -287,7 +291,7 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
                           key={subindex}
                           to={subitem.path}
                           onClick={() => isOpen && onClose()}
-                          className={`flex items-center px-3 xl:px-3.5 py-2 xl:py-2.5 text-xs xl:text-sm rounded-lg ${
+                          className={`flex items-center px-3 xl:px-3.5 py-1.5 xl:py-2 text-[10px] xl:text-[11px] rounded-md ${
                             isSubActive
                               ? "bg-primary/20 text-primary font-medium"
                               : "text-sidebar-foreground/70 hover:text-white hover:bg-sidebar-accent/50"
@@ -306,12 +310,12 @@ const Sidebar = ({ isOpen, onClose, isCollapsed, onToggleCollapse }) => {
 
         {/* Bottom section */}
         {!isCollapsed && (
-          <div className="p-3 xl:p-4 border-t border-sidebar-border/50">
-            <div className="bg-sidebar-accent/50 rounded-xl p-3 xl:p-4">
-              <p className="text-[10px] xl:text-xs text-sidebar-foreground/60 uppercase tracking-wider">
+          <div className="p-2 xl:p-3 border-t border-sidebar-border/50">
+            <div className="bg-sidebar-accent/50 rounded-lg p-2 xl:p-3">
+              <p className="text-[9px] xl:text-[9px] text-sidebar-foreground/60 uppercase tracking-wider">
                 Version
               </p>
-              <p className="text-xs xl:text-sm 2xl:text-base text-sidebar-foreground font-semibold">
+              <p className="text-[10px] xl:text-[10px] text-sidebar-foreground font-semibold">
                 2.0.0 Beta
               </p>
             </div>

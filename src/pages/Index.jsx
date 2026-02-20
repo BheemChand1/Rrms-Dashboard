@@ -125,7 +125,7 @@ const Index = () => {
         />
 
         {/* Spacer for fixed header */}
-        <div className="h-10 xl:h-12 2xl:h-14 flex-shrink-0" />
+        <div className="h-9 xl:h-10 2xl:h-11 flex-shrink-0" />
 
         <main className="flex-1 p-2 lg:p-3 xl:p-4 2xl:p-6 overflow-auto">
           <div className="flex items-center gap-2 mb-2 xl:mb-3 2xl:mb-4 text-muted-foreground">

@@ -5,6 +5,9 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
+  background-color: white;
+  padding: 2rem;
+  min-height: 100vh;
 `;
 
 const LegendContainer = styled.div`
@@ -70,21 +73,22 @@ const BedContainer = styled.div`
 const BedBox = styled.div`
   width: 60px;
   height: 60px;
-  border-radius: 6px;
-  border: 2px solid #1a1a1a;
+  border-radius: 8px;
+  border: 3px solid white;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: ${(props) => props.color};
   transition: transform 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   &:hover {
     transform: scale(1.1);
   }
 
   svg {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     color: ${(props) => props.iconColor || "white"};
   }
 `;
