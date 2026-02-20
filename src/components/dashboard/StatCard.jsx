@@ -32,33 +32,33 @@ const StatCard = ({ icon: Icon, iconColor, title, stats }) => {
           {stats.length === 1 ? (
             <div className="flex justify-center">
               <div className="text-center">
+                <span className="text-xs sm:text-sm xl:text-base 2xl:text-lg font-bold text-card-foreground leading-tight block">
+                  {stats[0].value}
+                </span>
                 <span className="text-[6px] sm:text-[7px] xl:text-[9px] 2xl:text-xs text-muted-foreground uppercase tracking-wide block">
                   {stats[0].label}
-                </span>
-                <span className="text-xs sm:text-sm xl:text-base 2xl:text-lg font-bold text-card-foreground leading-tight">
-                  {stats[0].value}
                 </span>
               </div>
             </div>
           ) : (
             <div className="flex sm:flex-row flex-col items-center sm:items-center sm:justify-between gap-0.5 sm:gap-0">
-              <div className="text-center sm:text-left flex-1">
+              <div className="text-center sm:text-center flex-1">
+                <span className="text-xs sm:text-sm xl:text-base 2xl:text-lg font-bold text-card-foreground leading-tight block">
+                  {stats[0].value}
+                </span>
                 <span className="text-[6px] sm:text-[7px] xl:text-[9px] 2xl:text-xs text-muted-foreground uppercase tracking-wide block">
                   {stats[0].label}
-                </span>
-                <span className="text-xs sm:text-sm xl:text-base 2xl:text-lg font-bold text-card-foreground leading-tight">
-                  {stats[0].value}
                 </span>
               </div>
 
               <div className="hidden sm:block w-px h-5 xl:h-6 2xl:h-8 bg-gradient-to-b from-transparent via-border to-transparent mx-1 xl:mx-1.5" />
 
-              <div className="text-center sm:text-right flex-1">
+              <div className="text-center sm:text-center flex-1">
+                <span className="text-xs sm:text-sm xl:text-base 2xl:text-lg font-bold text-card-foreground leading-tight block">
+                  {stats[1].value}
+                </span>
                 <span className="text-[6px] sm:text-[7px] xl:text-[9px] 2xl:text-xs text-muted-foreground uppercase tracking-wide block">
                   {stats[1].label}
-                </span>
-                <span className="text-xs sm:text-sm xl:text-base 2xl:text-lg font-bold text-card-foreground leading-tight">
-                  {stats[1].value}
                 </span>
               </div>
             </div>

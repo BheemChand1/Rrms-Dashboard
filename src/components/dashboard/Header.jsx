@@ -23,14 +23,14 @@ const Header = ({ onMenuClick, sidebarCollapsed }) => {
     >
       <div className="flex items-center gap-3 xl:gap-4">
         <button
-          className="lg:hidden p-1 rounded-lg text-primary-foreground hover:bg-white/15 transition-colors"
+          className="lg:hidden p-0.5 rounded-lg text-primary-foreground hover:bg-white/15 transition-colors"
           onClick={onMenuClick}
         >
-          <Menu className="h-3.5 w-3.5 xl:h-4 xl:w-4" />
+          <Menu className="h-3 w-3 xl:h-3.5 xl:w-3.5" />
         </button>
         <div className="flex items-center gap-2 xl:gap-2">
-          <div className="w-5 h-5 xl:w-6 xl:h-6 2xl:w-7 2xl:h-7 rounded-lg bg-white/20 flex items-center justify-center">
-            <span className="text-[10px] xl:text-xs 2xl:text-xs font-bold">
+          <div className="w-4 h-4 xl:w-5 xl:h-5 2xl:w-5 2xl:h-5 rounded-lg bg-white/20 flex items-center justify-center">
+            <span className="text-[8px] xl:text-[9px] 2xl:text-[9px] font-bold">
               ✓
             </span>
           </div>
@@ -75,8 +75,8 @@ const Header = ({ onMenuClick, sidebarCollapsed }) => {
         >
           Help
         </a>
-        <button className="bg-destructive text-destructive-foreground p-1 xl:p-1.5 sm:px-2 xl:sm:px-3 sm:py-1 xl:sm:py-1.5 rounded-lg text-[10px] xl:text-xs font-semibold hover:bg-destructive/90 transition-all shadow-sm flex items-center gap-1.5">
-          <LogOut className="h-3 w-3 sm:h-3.5 sm:w-3.5 xl:h-4 xl:w-4" />
+        <button className="bg-destructive text-destructive-foreground p-0.5 xl:p-1 sm:px-1.5 xl:sm:px-2 sm:py-0.5 xl:sm:py-1 rounded-lg text-[9px] xl:text-[10px] font-semibold hover:bg-destructive/90 transition-all shadow-sm flex items-center gap-1">
+          <LogOut className="h-2.5 w-2.5 sm:h-3 sm:w-3 xl:h-3.5 xl:w-3.5" />
           <span className="hidden sm:inline">Sign Out</span>
         </button>
       </nav>
